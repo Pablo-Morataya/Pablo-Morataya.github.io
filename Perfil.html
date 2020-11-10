@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Perfil</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+  </head>
+
+  <body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+      <!-- Sidebar -->
+      <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+        <!-- Sidebar - Brand -->
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="Peliculas.html">
+          <div class="sidebar-brand-icon rotate-n-15">
+            <i class="fas fa-laugh-wink"></i>
+          </div>
+          <div class="sidebar-brand-text mx-3">MovieHouse</div>
+        </a>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider my-0">
+
+        <!-- Nav Item - Dashboard -->
+        <li class="nav-item">
+          <a class="nav-link" href="Peliculas.html">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Películas</span></a>
+        </li>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider">
+
+        <!-- Heading -->
+        <div class="sidebar-heading">
+          Interface
+        </div>
+
+        <!-- Nav Item - Pages Collapse Menu -->
+        <li class="nav-item">
+          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+            <i class="fas fa-fw fa-cog"></i>
+            <span>Opciones Peliculas</span>
+          </a>
+          <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+              <a class="collapse-item" href="Reseñas.html">Reseñas</a>
+              <a class="collapse-item" href="Funciones.html">Funciones</a>
+            </div>
+          </div>
+        </li>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider">
+
+        <!-- Heading -->
+        <div class="sidebar-heading">
+          Addons
+        </div>
+
+        <!-- Nav Item - Usuarios -->
+        <li class="nav-item">
+          <a class="nav-link" href="Usuarios.html">
+            <i class="fas fa-fw fa-table"></i>
+            <span>Usuario</span></a>
+        </li>
+
+        <!-- Nav Item - Registro -->
+        <li class="nav-item">
+          <a class="nav-link" href="registerAdmin.html">
+            <i class="fas fa-fw fa-table"></i>
+            <span>Registrar Usuario</span></a>
+        </li>
+
+        <!-- Nav Item - Perfil -->
+        <li class="nav-item active">
+          <a class="nav-link" href="Perfil.html">
+            <i class="fas fa-fw fa-table"></i>
+            <span>Perfil</span></a>
+        </li>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider d-none d-md-block">
+
+        <!-- Sidebar Toggler (Sidebar) -->
+        <div class="text-center d-none d-md-inline">
+          <button class="rounded-circle border-0" id="sidebarToggle"></button>
+        </div>
+
+      </ul>
+      <!-- End of Sidebar -->
+
+      <!-- Content Wrapper -->
+      <div id="content-wrapper" class="d-flex flex-column">
+
+        <!-- Main Content -->
+        <div id="content">
+
+          <!-- Topbar -->
+          <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+            <!-- Topbar Navbar -->
+            <ul class="navbar-nav ml-auto">
+
+              <div class="topbar-divider d-none d-sm-block"></div>
+
+              <!-- Nav Item - User Information -->
+              <li class="nav-item dropdown no-arrow">
+                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <div id="usuarioActual">
+
+                  </div>
+                  <img class="img-profile rounded-circle" src="img/intro.jpg">
+                </a>
+                <!-- Dropdown - User Information -->
+                <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                  <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                    Logout
+                  </a>
+                </div>
+              </li>
+
+            </ul>
+
+          </nav>
+          <!-- End of Topbar -->
+
+          <!-- Begin Page Content -->
+          <div class="container-fluid">
+
+            <!-- Page Heading -->
+            <div class="d-sm-flex align-items-center justify-content-between mb-4">
+              <h1 class="h3 mb-0 text-gray-800">Perfil</h1>
+            </div>
+                  <!-- Nested Row within Card Body -->
+                  <hr>
+                  <hr>
+                  <hr>
+                  <hr>
+                    <div class="col-lg-9">
+                      <div class="p-5" id="agregarDatos">
+                        
+                      </div>
+                    </div>
+          </div>
+
+        </div>
+        <!-- End of Main Content -->
+      
+    <!-- DataTales Example -->
+      <div class="card shadow mb-4">
+        <div class="card-header py-3">
+          <button class="btn btn-success btn-lg" data-toggle="modal" data-target="#confirmacion">Guardar Cambios
+          </button>
+        </div>
+        </div>
+      </div>
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+      <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop">
+      Launch static backdrop modal
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="confirmacion" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="staticBackdropLabel">¿Desea realizar estos cambios?</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Realmente desea relizar estos cambios?
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn btn-primary" onclick="realizarCambios()">Confirmar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+      </div>
+      <!-- End of Page Wrapper -->
+
+      <!-- Scroll to Top Button-->
+      <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fas fa-angle-up"></i>
+      </a>
+
+      <!-- Logout Modal-->
+      <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+      <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">¿Desea cerrar sesión?</h5>
+        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">Seleccione "Logout" si realmente desea cerrar sesión.</div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+        <a class="btn btn-primary" href="index.html">Logout</a>
+      </div>
+      </div>
+      </div>
+      </div>
+
+      <!-- Bootstrap core JavaScript-->
+      <script src="vendor/jquery/jquery.min.js"></script>
+      <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+      <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+      crossorigin="anonymous"></script>
+
+      <!-- Core plugin JavaScript-->
+      <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+      <!-- Custom scripts for all pages-->
+      <script src="js/sb-admin-2.min.js"></script>
+
+      <!-- Page level plugins -->
+      <script src="vendor/chart.js/Chart.min.js"></script>
+
+      <!-- Page level custom scripts -->
+      <script src="js/demo/chart-area-demo.js"></script>
+      <script src="js/demo/chart-pie-demo.js"></script>
+
+      <script type="text/javascript">
+
+          //*************  METODO MODIFICAR USUARIO  **********
+          let xhr = new XMLHttpRequest();
+
+          xhr.onreadystatechange = function() {
+            if (xhr.readyState == XMLHttpRequest.DONE) {
+                var response = JSON.parse(xhr.responseText)
+                console.log(JSON.parse(xhr.responseText))
+
+                var usuario = '<span class="mr-2 d-none d-lg-inline text-gray-600 small">'+ response.usuario +'</span>';
+                var contenido = '<form class="user">';
+                  var texto = '<div class="form-group row">'+
+                            '<div class="col-sm-6 mb-3 mb-sm-0">'+
+                              '<input type="text" class="form-control form-control-user" id="inputNombre" value="'+ response.nombre+ '" >'+
+                            '</div>'+
+                            '<div class="col-sm-6">'+
+                              '<input type="text" class="form-control form-control-user" id="inputApellido" value="'+ response.apellido +'">'+
+                            '</div>'+
+                          '</div>'+
+                          '<div class="form-group">'+
+                            '<input type="text" class="form-control form-control-user" id="inputUsuario" value="'+ response.usuario +'"  disabled>'+
+                          '</div>'+
+                          '<div class="form-group row">'+
+                          '<div class="col-sm-6 mb-3 mb-sm-0">'+
+                              '<input type="password" class="form-control form-control-user" id="inputPassword" value="'+ response.password+'">'+
+                            '</div>'+
+                           '<div class="col-sm-6">'+
+                              '<input type="password" class="form-control form-control-user" id="inputConfirm" placeholder="Repeat Password">'+
+                            '</div>'+
+                          '</div>';        
+                        //</form>   
+                        contenido += texto;
+                contenido += '</form>'
+                document.getElementById("agregarDatos").innerHTML = contenido;
+                document.getElementById("usuarioActual").innerHTML = usuario;
+            }
+          }
+          xhr.open("GET", 'https://proyecto2-backend2.herokuapp.com/obtenerActual');
+          xhr.setRequestHeader("Content-Type", "application/json; charset=utf-8");
+          xhr.send(null)  
+        //************* FIN METODO MODIFICAR USUARIO  **********
+        
+          function realizarCambios() {
+
+            var inputNombre = $("#inputNombre").val();
+            var inputApellido = $("#inputApellido").val();
+            var inputPassword = $("#inputPassword").val();
+            var inputConfirm = $("#inputConfirm").val();
+
+            var data = {
+                      nombre: inputNombre,
+                      apellido: inputApellido,
+                      password: inputPassword,
+                      confirm: inputConfirm
+                }
+
+            let xhr = new XMLHttpRequest();
+
+            xhr.onreadystatechange = function() {
+                    if (xhr.readyState == XMLHttpRequest.DONE) {
+                        var response = JSON.parse(xhr.responseText)
+
+                        if(response.status == 200) {
+                            console.log(JSON.parse(xhr.responseText))
+                            swal("Se han guardado los cambios")
+                            .then((value) => {
+                              location.href = "Perfil.html"
+                            });   
+                        } else if (response.status == 400){
+                          console.log(JSON.parse(xhr.responseText))
+                            swal("Las contraseñas no coinciden")
+                            .then((value) => {
+                            });
+                        } else {
+                          console.log(JSON.parse(xhr.responseText))
+                            swal("Ha ocurrido un error, intentelo nuevamente")
+                            .then((value) => {
+                              location.href = "Perfil.html"
+                            });
+                        }
+                    } 
+            }
+            xhr.open("PUT", 'https://proyecto2-backend2.herokuapp.com/modificarUsuario');
+            xhr.setRequestHeader("Content-Type", "application/json; charset=utf-8");
+            xhr.send(JSON.stringify(data))
+          }
+      </script>
+
+  </body>
+</html>

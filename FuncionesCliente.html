@@ -1,0 +1,307 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Funciones</title>
+		<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+		<!-- Custom Theme files -->
+		<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+		<!-- Custom Theme files -->
+		<script src="js/jquery.min.js"></script>
+		<!-- Custom Theme files -->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="keywords" content="Cinema Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+		Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+		<!--webfont-->
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+	</head>
+	<body>
+		<!-- header-section-starts -->
+		<div class="full">
+				<div class="menu">
+					<ul>
+						<li><a href="PeliculasUsuario.html"><div class="hm"><i class="home1"></i><i class="home2"></i></div></a></li>
+						<li><a class="active" href="FuncionesCliente.html"><div class="bk"><i class="booking"></i><i class="booking1"></i></div></a></li>
+						<li><a href="PerfilUsuario.html"><div class="cat"><i class="watching"></i><i class="watching1"></i></div></a></li>
+						<li><a onclick="confirmarSalida()" ><img src="img/salida.png" alt="" width="45" height="45"/></a></li>
+					</ul>
+				</div>
+			<div class="main">
+			<div class="review-content">
+				<div class="top-header span_top">
+					<div class="logo">
+						<a href=""><img src="img/intro.jpg" alt="" width="130" height="80"/></a>
+						<div id="usuarioActual">
+						</div>
+					</div>
+					<div class="search v-search">
+						<form>
+							<input type="text" value="Search.." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search..';}"/>
+							<input type="submit" value="">
+						</form>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+
+				<div class="reviews-section">
+					<h3 class="head">Funciones</h3>
+						<div class="col-md-9 reviews-grids">
+							<div class="review" id="pelicula">
+								
+							</div>
+							<div class="clearfix"></div>
+						</div>
+				</div>
+						
+
+				<div class="clearfix"></div>
+				</div>
+				<div class="container" id="cargaFunciones">
+
+				</div>
+			</div>	
+
+		</div>
+			<div class="clearfix"></div>
+		</div>
+		<!-- Modal -->
+		<div class="modal" tabindex="-1" id="agregarPelicula">
+			<div class="modal-dialog">
+				<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Agregar Peliculas</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body" style="text-align:center;" id="lugares">
+						</tbody>
+					</table>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+		crossorigin="anonymous"></script>
+		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	
+		<script type="text/javascript">
+
+			//--------------- METODO CARGAR FUNCIONES ---------------
+			let xhr = new XMLHttpRequest();
+				xhr.onreadystatechange = function() {
+				if (xhr.readyState == XMLHttpRequest.DONE) {
+					var response = JSON.parse(xhr.responseText)
+
+					console.log(response[2].lugares)
+
+					var mostrarPeliculas = '<table class="table table-sm table-dark">'+
+											'<thead>'+
+												'<tr>'+
+													'<th scope="col">Sala</th>'+
+													'<th scope="col">Película</th>'+
+													'<th scope="col">Hora</th>'+
+													'<th scope="col">Estado</th>'+
+												'</tr>'+
+												'</thead>'+
+												'<tbody>';
+
+					response.forEach(element => {
+						var columna = "";
+						if (element.estado == "NO Disponible"){
+							columna += '<tr>'+
+											'<th scope="row">'+ element.sala + '</th>'+
+											'<td>'+ element.pelicula +' </td>'+
+											'<td>'+ element.hora +'</td>'+
+											'<td>'+
+												'<button type="button" class="btn btn-info">Funcion Finalizada</button></td>'+
+										'</tr>';
+							mostrarPeliculas += columna;
+
+						} else {
+							var salas = false;
+							
+							element.lugares.forEach(sala => {
+								if(sala == "vacio"){
+									salas = true;
+								}	
+							});
+							
+							if(salas == true){
+								columna += '<tr>'+
+											'<th scope="row">'+ element.sala + '</th>'+
+												'<td> <p id="inputNombre">'+ element.pelicula +'</p></td>'+
+												'<td>'+ element.hora +'</td>'+
+												'<td>'+
+													'<button type="button" class="btn btn-success" data-toggle="modal" data-target="#agregarPelicula">Disponible: Asistir</button></td>'+
+											'</tr>';
+								mostrarPeliculas += columna;
+							}else{
+								columna += '<tr>'+
+										'<th scope="row">'+ element.sala + '</th>'+
+											'<td> '+ element.pelicula +'</td>'+
+											'<td>'+ element.hora +'</td>'+
+											'<td>'+
+												'<button type="button" class="btn btn-danger">No Disponible: Sala Llena</button></td>'+
+										'</tr>';
+								mostrarPeliculas += columna;	
+							}
+						}
+					});
+					mostrarPeliculas += '</tbody> </table>';
+					document.getElementById("cargaFunciones").innerHTML = mostrarPeliculas;
+
+					var inputNombre = document.getElementById('inputNombre');
+					var nombre = inputNombre.innerHTML;
+					
+					var indice ;
+					for (let i = 0; i < response.length; i++) {
+						if(response[i].pelicula == nombre){
+							indice = i;
+						}
+					}
+
+					console.log(indice)
+
+					//------------------------------ LUGARES ----------------------------------------
+					var inputNombre = document.getElementById('inputNombre');
+					var nombre = inputNombre.innerHTML; 
+					var lugar = '<table class="table table-bordered">'+
+									'<thead>'+
+									'<tr class="bg-primary">'+
+										'<td colspan="3">Pantalla</td>'+
+									'</tr>'+
+									'</thead>'+
+									'<tbody>';
+					
+					var column = '<tr>';
+					for (let i = 0; i < 3; i++) {
+						if(response[indice].lugares[i] == "vacio"){
+							column += '<td><button type="button" onclick="asistencia('+ parseInt(i) +')" class="btn btn-success" >Libre</button></td>';
+						}else {
+							column += '<td><button type="button" onclick="asistencia('+ parseInt(i) +')" class="btn btn-dark">Lleno</button></td>';
+						}		
+					}
+					column += '</tr>';
+
+					var column2 = '<tr>';
+					for (let i = 3; i < 6; i++) {
+						if(response[indice].lugares[i] == "vacio"){
+							column2 += '<td><button type="button" onclick="asistencia('+ parseInt(i) +')" class="btn btn-success">Libre</button></td>';
+						}else{
+							column2 += '<td><button type="button" onclick="asistencia('+ parseInt(i) +')" class="btn btn-dark">Lleno</button></td>';
+						}		
+					}
+					column2 += '</tr>';
+
+					var column3 = '<tr>';
+					for (let i = 6; i < 9; i++) {
+						if(response[indice].lugares[i] == "vacio"){
+							column3 += '<td><button type="button" onclick="asistencia('+ parseInt(i) +')" class="btn btn-success">Libre</button></td>';
+						}else{
+							column3 += '<td><button type="button" onclick="asistencia('+ parseInt(i) +')" class="btn btn-dark">Lleno</button></td>';
+						}		
+					}
+					column3 += '</tr>';
+
+					lugar += (column + column2 + column3);
+
+					lugar += '</tbody>'+
+							 '</table>'+
+								'<div class="modal-footer">' +
+									'<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>'
+								'</div>';
+
+					document.getElementById("lugares").innerHTML = lugar;
+					///////////////////////////////////////////
+				}
+			}
+			xhr.open("GET", 'https://proyecto2-backend2.herokuapp.com/obtenerFunciones');
+			xhr.setRequestHeader("Content-Type", "application/json; charset=utf-8");
+			xhr.send(null)  
+			//--------------- FIN METODO CARGAR FUNCIONES ---------------
+
+			//------------ OBTENER EL USUARIO ACTUAL --------------------
+			let xhr1 = new XMLHttpRequest();
+				xhr1.onreadystatechange = function() {
+					if (xhr1.readyState == XMLHttpRequest.DONE) {
+						var response = JSON.parse(xhr1.responseText)
+
+						var usuario = '<p>'+ response.usuario +'</p>';
+						document.getElementById("usuarioActual").innerHTML = usuario;
+					}
+				}
+			xhr1.open("GET", 'https://proyecto2-backend2.herokuapp.com/obtenerActual');
+			xhr1.setRequestHeader("Content-Type", "application/json; charset=utf-8");
+			xhr1.send(null)
+			//----------- FIN USUARIO ACTUAL ---------------- --------
+
+			//------------- METODO ASISTIR FUNCION ------------------
+			function asistencia(item){
+				var inputPos = item;
+				var inputNombre = document.getElementById('inputNombre');
+				var nombre = inputNombre.innerHTML;
+
+				var data = {
+					pelicula: nombre,
+					lugar: inputPos
+            	}
+				console.log(data)
+
+				let xhr = new XMLHttpRequest();
+
+				xhr.onreadystatechange = function() {
+						if (xhr.readyState == XMLHttpRequest.DONE) {
+							var response = JSON.parse(xhr.responseText)
+
+							if(response.status == 200) {
+								console.log(JSON.parse(xhr.responseText))
+								swal("Lugar reservado")
+								.then((value) => {
+									location.href = "FuncionesCliente.html"
+								});
+							} else {
+								console.log(JSON.parse(xhr.responseText))
+								swal("Ha ocurrido un error, intentelo nuevamente")
+								.then((value) => {
+									location.href = "FuncionesCliente.html"
+								});
+							}
+						} 
+					}
+				xhr.open("POST", 'https://proyecto2-backend2.herokuapp.com/asistirFuncion');
+				xhr.setRequestHeader("Content-Type", "application/json; charset=utf-8");
+				xhr.send(JSON.stringify(data))
+			}
+			//------------- FIN METODO ASISTIR FUNCION ------------------
+			
+			//-------------------- Salida -------------------
+			function confirmarSalida(){
+				swal({
+					title: "¿Desea cerrar sesión?",
+					icon: "warning",
+					buttons: true,
+					dangerMode: true,
+				})
+				.then((willDelete) => {
+					if (willDelete) {
+						swal("Sesión cerrada", {
+						icon: "success",
+						}).then((value) => {
+							location.href = "index.html"
+						});
+					} else {
+					}
+				});					
+			}
+			//-------------------- Salida ------------------
+		</script>		
+	</body>
+</html>
